@@ -1,0 +1,21 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "existingVirtualNetworkNameRGName": {
+      "value": "<Replace with existing Virtual Network Resource Group name>"
+    },    
+    "existingVirtualNetworkName": {
+      "value": "<Replace with existing Virtual Network name>"
+    },
+    "existingSubnetName": {
+      "value": "<Replace with existing Subnet name>"
+    },
+    "existingSubnetPrefix": {
+      "value": "<Replace with existing Subnet prefix>"
+    },
+    "vmNodeType0Size": {
+      "value": "Standard_D2_v2"
+    }
+  }
+}
