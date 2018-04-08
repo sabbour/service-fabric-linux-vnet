@@ -1,10 +1,12 @@
 # Introduction
 
-This guide will help you create a Secured Linux Service Fabric cluster that runs inside an **existing** Virtual Network and subnet using the Azure CLI.
+This guide will help you create a Secured Linux Service Fabric cluster that runs inside an **existing** Virtual Network and Subnet using the Azure CLI.
+
+> The template is based on the [sample published here](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) and is modified to provision into an existing Virtual Network and Subnet.
+
+>This guide assumes you already have a Virtual Network created with a Subnet where you want to deploy Service Fabric. If not, you need to create the Virtual Network and Subnet first and specify the values below.
 
 ## Steps
-
-This guide assumes you already have a Virtual Network created with a subnet where you want to deploy Service Fabric. If not, you need to create the Virtual Network and subnet first and specify the values below.
 
 1. Specify variable values
 
