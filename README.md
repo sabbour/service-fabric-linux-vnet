@@ -71,4 +71,6 @@ This guide will help you create a Secured Linux Service Fabric cluster that runs
 
 1. Access the Service Fabric Explorer in your browser
 
-    Make sure you install either the .pem or the .pfx certificate on your machine, depending on your operating system.
+    Make sure you install either the `.pem` or the `.pfx` certificate on your machine, depending on your operating system, then go to <https://[clustername].[region].cloudapp.azure.com:19080/Explorer>
+
+    When prompted, select the cluster certificate to authenticate.
