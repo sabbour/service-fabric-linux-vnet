@@ -2,6 +2,12 @@
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "clusterName": {
+      "value": "<Replace with cluster name>"
+    },
+    "clusterLocation": {
+      "value": "<Replace with location>"
+    },
     "existingVirtualNetworkNameRGName": {
       "value": "<Replace with existing Virtual Network Resource Group name>"
     },    
@@ -16,6 +22,18 @@
     },
     "vmNodeType0Size": {
       "value": "Standard_D2_v2"
+    },
+    "nt0InstanceCount": {
+      "value": 3
+    },
+    "certificateThumbprint": {
+      "value": ""
+    },
+    "sourceVaultValue": {
+      "value": ""
+    },
+    "certificateUrlValue": {
+      "value": ""
     }
   }
 }

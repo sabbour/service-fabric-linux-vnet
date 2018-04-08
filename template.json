@@ -4,28 +4,28 @@
   "parameters": {
     "clusterLocation": {
       "type": "string",
-      "defaultValue": "westus",
+      "defaultValue": "",
       "metadata": {
         "description": "Location of the Cluster"
       }
     },
     "clusterName": {
       "type": "string",
-      "defaultValue": "GEN-UNIQUE",
+      "defaultValue": "",
       "metadata": {
         "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
       }
     },
     "adminUserName": {
       "type": "string",
-      "defaultValue": "GEN-UNIQUE",
+      "defaultValue": "",
       "metadata": {
         "description": "Remote desktop user Id"
       }
     },
     "adminPassword": {
       "type": "securestring",
-      "defaultValue": "GEN-PASSWORD",
+      "defaultValue": "",
       "metadata": {
         "description": "Remote desktop user password. Must be a strong password"
       }
@@ -96,7 +96,7 @@
     },
     "certificateThumbprint": {
       "type": "string",
-      "defaultValue": "T",
+      "defaultValue": "",
       "metadata": {
         "description": "Certificate Thumbprint"
       }
@@ -424,7 +424,6 @@
       "name": "[variables('vmNodeType0Name')]",
       "location": "[variables('computeLocation')]",
       "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', parameters('existingVirtualNetworkName'))]",
         "[concat('Microsoft.Network/loadBalancers/', concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType0Name')))]",
         "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]",
         "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
@@ -592,7 +591,7 @@
           "vmInstanceCount": "[parameters('nt0InstanceCount')]"
         }],
         "provisioningState": "Default",
-        "reliabilityLevel": "Silver",
+        "reliabilityLevel": "Bronze",
         "upgradeMode": "Automatic",
         "vmImage": "Linux"
       },

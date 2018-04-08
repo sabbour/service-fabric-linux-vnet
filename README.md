@@ -11,10 +11,10 @@ This guide assumes you already have a Virtual Network created with a subnet wher
 1. Specify variable values
 
 ```sh
-declare $rg=sf-rg # Resource Group Name
-declare $location=westeurope # Region
-declare $sfName=sfcluster # Service Fabric cluster name
-declare $vmPassword=p@ssw0rd.secure # Choose a secure password for your VMs
+declare rg=sf-rg # Resource Group Name
+declare location=westeurope # Region
+declare sfName=sfcluster # Service Fabric cluster name
+declare vmPassword=p@ssw0rd.secure # Choose a secure password for your VMs
 ```
 
 2. Create Resource Group
@@ -30,14 +30,18 @@ az group create -n $rg -l $location
     * ``existingSubnetName`` with your existing Virtual Network name
     * ``existingSubnetPrefix`` with your existing Virtual Network name
 
-4. Create the cluster and generate a certificate
+4. Create the folder to store the certificates
 
 ```sh
-az sf cluster create -g $rg -n $sfName -l $location \
---os UbuntuServer1604
---cluster-size 3 \
+mkdir -p certs
+```
+
+5. Create the cluster and generate a certificate
+
+```sh
+az sf cluster create -g $rg -l $location \
 --vm-password $vmPassword \
 --certificate-output-folder certs \
---certificate-subject-name $sfName.$location.cloudapp.azure.com
+--certificate-subject-name $sfName.$location.cloudapp.azure.com \
 --template-file template.json --parameter-file parameters.json
 ```
