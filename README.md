@@ -1,4 +1,4 @@
-# Introduction
+# Secure Service Fabric on Linux inside an existing Virtual Network
 
 This guide will help you create a Secured Linux Service Fabric cluster that runs inside an **existing** Virtual Network and Subnet using the Azure CLI.
 
