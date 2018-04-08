@@ -42,7 +42,7 @@ mkdir -p certs
 5. Create the cluster and generate a certificate
 
 ```sh
-az sf cluster create -g $rg -l $location \
+az sf cluster create -n $sfName -g $rg -l $location \
 --certificate-output-folder certs \
 --certificate-subject-name "$sfName.$location.cloudapp.azure.com" \
 --template-file template.json --parameter-file parameters.json
