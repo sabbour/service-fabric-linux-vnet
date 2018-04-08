@@ -10,17 +10,17 @@ This guide will help you create a Secured Linux Service Fabric cluster that runs
 
 1. Specify variable values
 
-```sh
-declare rg=sf-rg # Resource Group Name
-declare location=westeurope # Region
-declare sfName=sfcluster # Service Fabric cluster name
-```
+    ```sh
+    declare rg=sf-rg # Resource Group Name
+    declare location=westeurope # Region
+    declare sfName=sfcluster # Service Fabric cluster name
+    ```
 
 1. Create Resource Group
 
-```sh
-az group create -n $rg -l $location
-```
+    ```sh
+    az group create -n $rg -l $location
+    ```
 
 1. Modify the **parameters.json** file and replace:
    * ``clusterName`` with your Service Fabric cluster name
@@ -34,18 +34,18 @@ az group create -n $rg -l $location
 
 1. Create the folder to store the certificates:
 
-```sh
-mkdir -p certs
-```
+    ```sh
+    mkdir -p certs
+    ```
 
 1. Create the cluster and generate a certificate
 
-```sh
-az sf cluster create -n $sfName -g $rg -l $location \
---certificate-output-folder certs \
---certificate-subject-name "$sfName.$location.cloudapp.azure.com" \
---template-file template.json --parameter-file parameters.json
-```
+    ```sh
+    az sf cluster create -n $sfName -g $rg -l $location \
+    --certificate-output-folder certs \
+    --certificate-subject-name "$sfName.$location.cloudapp.azure.com" \
+    --template-file template.json --parameter-file parameters.json
+    ```
 
 1. Connect to the cluster
 
@@ -61,6 +61,6 @@ az sf cluster create -n $sfName -g $rg -l $location \
 
 1. Verify cluster health
 
-```sh
-sfctl cluster health
-```
+    ```sh
+    sfctl cluster health
+    ```
