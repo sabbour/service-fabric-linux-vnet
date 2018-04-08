@@ -12,8 +12,8 @@ This guide will help you create a Secured Linux Service Fabric cluster that runs
 
     ```sh
     declare rg=sf-rg # Resource Group Name
-    declare location=westeurope # Region
-    declare sfName=sfcluster # Service Fabric cluster name
+    export location=westeurope # Region
+    export sfName=sfcluster # Service Fabric cluster name
     ```
 
 1. Create Resource Group
@@ -47,20 +47,28 @@ This guide will help you create a Secured Linux Service Fabric cluster that runs
     --template-file template.json --parameter-file parameters.json
     ```
 
+1. Verify that the cluster is up
+
+    Wait until the command below shows **Succeeded**. It may take a while.
+
+    ```sh
+    az sf cluster show -n $sfName -g $location --query clusterState
+    ```
+
 1. Connect to the cluster
 
-    * On MacOS/Linux:
-        ```sh
-        sfctl cluster select --endpoint https://"$sfName.$location.cloudapp.azure.com":19080 --pem /path/to/certificate.pem --no-verify
-        ```
+    Once the cluster is up and running, connect using [sfctl](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli)
 
-    * On Windows:
-        ```sh
-        sfctl cluster select --endpoint https://"$sfName.$location.cloudapp.azure.com":19080 --cert /path/to/certificate.pfx --no-verify
-        ```
+    ```sh
+    sfctl cluster select --endpoint "https://$sfName.$location.cloudapp.azure.com:19080" --pem /path/to/certificate.pem --no-verify
+    ```
 
 1. Verify cluster health
 
     ```sh
     sfctl cluster health
     ```
+
+1. Access the Service Fabric Explorer in your browser
+
+    Make sure you install either the .pem or the .pfx certificate on your machine, depending on your operating system.
