@@ -14,7 +14,6 @@ This guide assumes you already have a Virtual Network created with a subnet wher
 declare rg=sf-rg # Resource Group Name
 declare location=westeurope # Region
 declare sfName=sfcluster # Service Fabric cluster name
-declare vmPassword=p@ssw0rd.secure # Choose a secure password for your VMs
 ```
 
 2. Create Resource Group
@@ -25,6 +24,10 @@ az group create -n $rg -l $location
 
 3. Modify the **parameters.json** file and replace:
 
+    * ``clusterName`` with your Service Fabric cluster name
+    * ``clusterLocation`` with your region name
+    * ``adminUserName`` with your VM admin username
+    * ``adminPassword`` with your VM admin password
     * ``existingVirtualNetworkNameRGName`` with your existing Virtual Network Resource Group name
     * ``existingVirtualNetworkName`` with your existing Virtual Network name
     * ``existingSubnetName`` with your existing Virtual Network name
@@ -40,7 +43,6 @@ mkdir -p certs
 
 ```sh
 az sf cluster create -g $rg -l $location \
---vm-password $vmPassword \
 --certificate-output-folder certs \
 --certificate-subject-name $sfName.$location.cloudapp.azure.com \
 --template-file template.json --parameter-file parameters.json

@@ -8,6 +8,12 @@
     "clusterLocation": {
       "value": "<Replace with location>"
     },
+    "adminUserName": {
+      "value": "<Replace with VM admin username>"
+    },
+    "adminPassword": {
+      "value": "<Replace with VM admin password>"
+    },
     "existingVirtualNetworkNameRGName": {
       "value": "<Replace with existing Virtual Network Resource Group name>"
     },    
