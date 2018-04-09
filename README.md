@@ -57,7 +57,7 @@ This guide will help you create a Secured Linux Service Fabric cluster that runs
 
 1. Connect to the cluster
 
-    Once the cluster is up and running, connect using [sfctl](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli)
+    Once the cluster is up and running, connect using [sfctl](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli). Make sure to replace `/path/to/certificate.pem` with the actual path to the generated certificate in the `certs` folder
 
     ```sh
     sfctl cluster select --endpoint "https://$sfName.$location.cloudapp.azure.com:19080" --pem /path/to/certificate.pem --no-verify
