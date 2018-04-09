@@ -12,8 +12,8 @@ This guide will help you create a Secured Linux Service Fabric cluster that runs
 
     ```sh
     declare rg=sf-rg # Resource Group Name
-    export location=westeurope # Region
-    export sfName=sfcluster # Service Fabric cluster name
+    declare location=westeurope # Region
+    declare sfName=sfcluster # Service Fabric cluster name
     ```
 
 1. Create Resource Group
