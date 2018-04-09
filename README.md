@@ -22,7 +22,7 @@ This guide will help you create a Secured Linux Service Fabric cluster that runs
     az group create -n $rg -l $location
     ```
 
-1. Modify the **parameters.json** file and replace:
+1. Modify the **parameters.json** file and fill in:
    * ``clusterName`` with your Service Fabric cluster name
    * ``clusterLocation`` with your region name
    * ``adminUserName`` with your VM admin username
